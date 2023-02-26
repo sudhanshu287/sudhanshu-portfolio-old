@@ -1,3 +1,13 @@
+/**
+ * element toggle function
+ */
+
+const elemToggleFunc = function (elem) { elem.classList.toggle("btn-active"); }
+
+
+
+
+
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
@@ -29,23 +39,25 @@ function linkAction() {
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-/*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName("skills__content"),
-  skillsHeader = document.querySelectorAll(".skills__header");
 
-function toggleSkills() {
-  let itemClass = this.parentNode.ClassName;
-  for (let i = 0; i < skillsContent.length; i++) {
-    skillsContent[i].className = "skills__content skills__close";
-  }
-  if (itemClass === "skills__content skills__close") {
-    this.parentNode.className = "skills__content skills__open";
-  }
+/**
+ * skills toggle
+ */
+
+const toggleBtnBox = document.querySelector("[data-toggle-box]");
+const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
+const skillsBox = document.querySelector("[data-skills-box]");
+
+for (let i = 0; i < toggleBtns.length; i++) {
+  toggleBtns[i].addEventListener("click", function () {
+
+    elemToggleFunc(toggleBtnBox);
+    for (let i = 0; i < toggleBtns.length; i++) { elemToggleFunc(toggleBtns[i]); }
+    elemToggleFunc(skillsBox);
+
+  });
 }
 
-skillsHeader.forEach((el) => {
-  el.addEventListener("click", toggleSkills);
-});
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll("[data-target]"),
@@ -99,26 +111,6 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
   },
 });
 
-/*==================== TESTIMONIAL ====================*/
-let swiperTestimonial = new Swiper(".testimonial__container", {
-  loop: true,
-  grabCursor: true,
-  spaceBetween: 48,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
-  breakpoints: {
-    568: {
-      slidesPerView: 2,
-    },
-  },
-});
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
