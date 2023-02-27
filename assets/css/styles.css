@@ -467,8 +467,8 @@ img {
 }
 
 .skills-toggle.btn-active::before {
-  left: 180px;
-  width: 100px;
+  left: 160px;
+  width: 140px;
 }
 
 .toggle-btn {
@@ -979,6 +979,12 @@ img {
 }
 
 /* For medium devices */
+@media screen and (min-width:375px) and (max-width:650px){
+  .skills-toggle.btn-active::before {
+    left: 180px;
+    width: 85px;
+  }
+}
 @media screen and (min-width: 568px) {
   .home__content {
     grid-template-columns: max-content 1fr 1fr;
@@ -990,6 +996,7 @@ img {
     order: 1;
     justify-self: center;
   }
+  
   .about__container,
   .skills__container,
   .portfolio__content,
@@ -1078,7 +1085,10 @@ img {
   .about__buttons {
     justify-content: initial;
   }
- 
+  .skills-toggle.btn-active::before {
+    left: 170px;
+    width: 100px;
+  }
   .qualification__tabs {
     justify-content: center;
   }
